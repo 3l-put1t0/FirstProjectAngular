@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  templateUrl: './usuarios-page.component.html',
+  styleUrls: ['./usuarios-page.component.css']
 })
 export class UsuariosComponent {
 
