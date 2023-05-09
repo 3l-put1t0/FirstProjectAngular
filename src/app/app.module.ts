@@ -7,8 +7,8 @@ import { AngularMaterialModule } from './modules/angular-material/angular-materi
 import { NavegatorComponent } from './shared/components/navegator/navegator.component';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
 import { WrapComponent } from './shared/components/wrap/wrap.component';
-import { UsuariosComponent } from './pages/usuarios-page/usuarios-page.component';
-import { MateriasComponent } from './pages/materias-page/materias-page.component';
+import { ComponentsModule } from './modules/components/components/components.module';
+
 
 @NgModule({
   declarations: [
@@ -16,13 +16,13 @@ import { MateriasComponent } from './pages/materias-page/materias-page.component
     NavegatorComponent,
     ToolbarComponent,
     WrapComponent,
-    UsuariosComponent,
-    MateriasComponent
+    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    ComponentsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

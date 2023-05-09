@@ -1,5 +1,5 @@
 main {
     min-height: calc(100vh - var(--header-height));
-    background-color: azure;
+    background-color: rgb(173, 252, 232);
     padding: 2rem;
   }

@@ -1,0 +1,50 @@
+<!-- <p>user-component works!</p>
+<li *ngFor="let s of student">estudiante: {{s.name}}-{{s.lastname}}</li> -->
+<table mat-table [dataSource]="student" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let student">{{ student.id }}</td>
+  </ng-container>
+  <ng-container matColumnDef="firstname">
+    <th mat-header-cell *matHeaderCellDef>Nombre</th>
+    <td mat-cell *matCellDef="let student">{{ student.name }}</td>
+  </ng-container>
+  <ng-container matColumnDef="lastname">
+    <th mat-header-cell *matHeaderCellDef>Apellidos</th>
+    <td mat-cell *matCellDef="let student">{{ student.lastname }}</td>
+  </ng-container>
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <td mat-cell *matCellDef="let student">{{ student.age }}</td>
+  </ng-container>
+  <ng-container matColumnDef="semester">
+    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <td mat-cell *matCellDef="let student">{{ student.semester }}</td>
+  </ng-container>
+  <ng-container matColumnDef="active">
+    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <td mat-cell *matCellDef="let student">{{ student.active}}</td>
+  </ng-container>
+  <ng-container matColumnDef="course">
+    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <td mat-cell *matCellDef="let student">{{ student.course | json}}</td>
+  </ng-container>
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef>Editar</th>
+    <td mat-cell *matCellDef="let student">
+      <button mat-icon-button color="primary">
+        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon> -->
+      </button>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+    <td mat-cell *matCellDef="let student">
+      <button mat-icon-button color="warn">
+        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon> -->
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
