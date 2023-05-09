@@ -1,0 +1,8 @@
+.iconMenu:hover{
+    color: rgb(255, 4, 222);
+    /* color: rgb(255, 4, 130); */
+}
+
+.mat-mdc-menu-item:hover{
+    background-color: rgba(255, 4, 222, 0.5);
+}
