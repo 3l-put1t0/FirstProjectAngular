@@ -16,6 +16,7 @@ import { ComponentsModule } from './modules/components/components/components.mod
     NavegatorComponent,
     ToolbarComponent,
     WrapComponent,
+    // UserComponentComponent
     
   ],
   imports: [

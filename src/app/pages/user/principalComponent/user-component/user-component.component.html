@@ -14,26 +14,26 @@
     <td mat-cell *matCellDef="let student">{{ student.lastname }}</td>
   </ng-container>
   <ng-container matColumnDef="age">
-    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <th mat-header-cell *matHeaderCellDef>Edad</th>
     <td mat-cell *matCellDef="let student">{{ student.age }}</td>
   </ng-container>
   <ng-container matColumnDef="semester">
-    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <th mat-header-cell *matHeaderCellDef>Semestre</th>
     <td mat-cell *matCellDef="let student">{{ student.semester }}</td>
   </ng-container>
   <ng-container matColumnDef="active">
-    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <th mat-header-cell *matHeaderCellDef>Activo</th>
     <td mat-cell *matCellDef="let student">{{ student.active}}</td>
   </ng-container>
   <ng-container matColumnDef="course">
-    <th mat-header-cell *matHeaderCellDef>Es usuario activo?</th>
+    <th mat-header-cell *matHeaderCellDef>Cursos</th>
     <td mat-cell *matCellDef="let student">{{ student.course | json}}</td>
   </ng-container>
   <ng-container matColumnDef="edit">
     <th mat-header-cell *matHeaderCellDef>Editar</th>
     <td mat-cell *matCellDef="let student">
       <button mat-icon-button color="primary">
-        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon> -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
       </button>
     </td>
   </ng-container>
@@ -41,7 +41,7 @@
     <th mat-header-cell *matHeaderCellDef>Eliminar</th>
     <td mat-cell *matCellDef="let student">
       <button mat-icon-button color="warn">
-        <!-- <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon> -->
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
       </button>
     </td>
   </ng-container>
