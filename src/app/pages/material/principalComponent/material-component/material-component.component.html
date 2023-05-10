@@ -1,1 +1,44 @@
-<p>material-component works!</p>
+<table mat-table [dataSource]="materias" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let materias">{{ materias.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="semestre">
+      <th mat-header-cell *matHeaderCellDef>Semestre</th>
+      <td mat-cell *matCellDef="let materias">{{ materias.semestre }}</td>
+    </ng-container>
+    <ng-container matColumnDef="id del curso">
+      <th mat-header-cell *matHeaderCellDef>id del curso</th>
+      <td mat-cell *matCellDef="let materias">
+        <p *ngFor="let materia of materias.courseId">
+          <strong>{{materia}}</strong>
+        </p>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="curso">
+      <th mat-header-cell *matHeaderCellDef>cursos</th>
+      <td mat-cell *matCellDef="let materias">
+          <p class="text-course" *ngFor="let materia of materias.nameCourse">
+            <strong>{{materia}}</strong>
+          </p>        
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>Editar</th>
+      <td mat-cell *matCellDef="let materias">
+        <button mat-icon-button routerLink="modificar">
+          <mat-icon class="iconEdit" aria-hidden="false" aria-label="Example home icon" >edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+      <td mat-cell *matCellDef="let materias">
+        <button mat-icon-button routerLink="eliminar">
+          <mat-icon class="iconDelete" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>

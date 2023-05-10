@@ -34,26 +34,4 @@ export class UserComponentComponent {
     'edit',
     'delete',
   ];
-
-
-
-
-
-
-  // public dataStudents: ObjStudent[] = [
-  //   {
-  //     name: 'Juan',
-  //     lastname: 'Saldaña',
-  //     age: 25,
-  //     semester: 10,
-  //     course: ['Auto', 'Robótica', 'Circuitos']
-  //   },
-  //   {
-  //     name: 'Miguel',
-  //     lastname: 'Saldaña',
-  //     age: 22,
-  //     semester: 8,
-  //     course: ['Infraestructura', 'Lógica Matematíca', 'Arquitectura']
-  //   }
-  // ];
 }

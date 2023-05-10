@@ -12,5 +12,8 @@
 button:hover{
     background-color: rgba(223, 223, 223, 0.219);
 }
+.ng-star-inserted{
+    margin: 5px 0;
+}
 
 

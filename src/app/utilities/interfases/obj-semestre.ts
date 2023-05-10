@@ -1,5 +1,6 @@
 export interface ObjSemestre {
     id: string,
     semestre: number,
-    courseId: string[]
+    courseId: string[],
+    nameCourse: string[]
 }

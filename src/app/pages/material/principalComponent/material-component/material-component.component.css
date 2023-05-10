@@ -1,0 +1,11 @@
+.iconEdit{
+    color: aqua;
+}
+
+.iconEdit:hover{
+   color: rgb(38, 0, 255);
+}
+
+.iconDelete{
+   color: rgb(255, 89, 89);
+}
