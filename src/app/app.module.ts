@@ -9,7 +9,8 @@ import { ToolbarComponent } from './shared/components/toolbar/toolbar.component'
 import { ComponentsModule } from './modules/components/componentsPrincipal/components.module';
 import { MyRoutingModule } from './modules/routing/my-routing/root/my-routing.module';
 import { InicioComponentComponent } from './pages/incio/inicio-component/inicio-component.component';
-import { AgregarMaterialComponent } from './pages/material/secondComponent/agregar-material/agregar-material.component';
+import { WrapComponent } from './shared/components/wrap/wrap.component';
+import { LayoutComponent } from './pages/layout/layout.component';
 
 
 @NgModule({
@@ -18,6 +19,9 @@ import { AgregarMaterialComponent } from './pages/material/secondComponent/agreg
     NavegatorComponent,
     ToolbarComponent,
     InicioComponentComponent,
+    WrapComponent,
+
+   
   ],
   imports: [
     BrowserModule,

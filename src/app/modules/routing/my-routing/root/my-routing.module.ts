@@ -2,21 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MyRoutingRoutingModule } from './my-routing-routing.module';
-import { WrapComponent } from 'src/app/shared/components/wrap/wrap.component';
-import { MyRoutingChildrenUserModule } from '../children/my-routing-children-user/my-routing-children-user.module';
-
+import { LayoutComponent } from 'src/app/pages/layout/layout.component';
 
 @NgModule({
-  declarations: [WrapComponent],
+  declarations: [
+    LayoutComponent
+    // WrapComponent,
+    // UserComponentComponent,
+    // MaterialComponentComponent
+  ],
   imports: [
     CommonModule,
     MyRoutingRoutingModule,
-    MyRoutingChildrenUserModule
+    // AngularMaterialModule
   ],
   exports: [
     MyRoutingRoutingModule,
-    MyRoutingChildrenUserModule,
-    WrapComponent
+    LayoutComponent
+    // WrapComponent
   ]
 })
 export class MyRoutingModule { }
