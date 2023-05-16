@@ -13,6 +13,7 @@ export class LogueoService {
   private idUser: string = '';
   private passwordUser: string = '';
   private confirmSession: boolean = false;
+  private rolUser: string = '';
 
   constructor(private userDataService: UserDataService) {
     // this.userDataService.getUsersId();
@@ -46,6 +47,15 @@ export class LogueoService {
   //Retorna la respuesta de la confirmación:
   public getConfirmSession(): boolean {
     return this.confirmSession;
+  }
+
+  //Retorna el rol del usuario logueado si existe
+  public getRolUser(): string{
+    if(this.getConfirmSession()){
+      return this.rolUser = this.dataUser.rol;
+    }
+    return '';
+    
   }
 
 }

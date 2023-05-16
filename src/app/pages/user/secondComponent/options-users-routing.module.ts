@@ -4,7 +4,7 @@ import { UserComponentComponent } from '../principalComponent/user-component/use
 import { ModificarUserComponent } from './modificar-user/modificar-user.component';
 import { EliminarUserComponent } from './eliminar-user/eliminar-user.component';
 import { AgregarUserComponent } from './agregar-user/agregar-user.component';
-import { LayoutComponent } from '../../layout/layout.component';
+import { AuthGuard } from 'src/app/utilities/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +15,8 @@ const routes: Routes = [
           path: 'modificar', component: ModificarUserComponent
         },
         {
-          path: 'borrar', component: EliminarUserComponent
+          path: 'borrar', component: EliminarUserComponent,
+          canActivate: [AuthGuard],
         },
         {
           path: 'agregar', component: AgregarUserComponent

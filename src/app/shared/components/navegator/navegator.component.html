@@ -6,7 +6,8 @@
     <mat-icon>home</mat-icon>
     <span>Inicio</span>
   </button>
-  <button mat-menu-item routerLink="materias">
+  <!-- disabled="" -->
+  <button mat-menu-item routerLink="materias" *ngIf="rol==='administrador'">
     <mat-icon>draw_abstract</mat-icon>
     <span>Materias</span>
   </button>

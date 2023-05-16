@@ -8,6 +8,7 @@ import { OptionsUsersModule } from 'src/app/pages/user/secondComponent/options-u
 import { OptionsMaterialsModule } from '../../../../pages/material/secondComponent/options-materials.module';
 import { LayoutComponent } from 'src/app/pages/layout/layout.component';
 import { LoginComponent } from 'src/app/pages/login/login.component';
+import { AuthGuard } from 'src/app/utilities/guards/auth.guard';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'inicio', component: InicioComponentComponent
+        path: 'inicio', 
+        component: InicioComponentComponent,
       },
       {
         path: 'usuarios',
@@ -28,10 +30,13 @@ const routes: Routes = [
       },
       {
         path: 'materias', //component: MaterialComponentComponent,
-        loadChildren: () => import('../../../../pages/material/secondComponent/options-materials.module').then((m) => m.OptionsMaterialsModule)
+        loadChildren: () => import('../../../../pages/material/secondComponent/options-materials.module').then((m) => m.OptionsMaterialsModule),
+        canActivate: [AuthGuard],
       },
       {
-        path: 'inscripciones', component: InscripcionesComponentComponent
+        path: 'inscripciones', 
+        component: InscripcionesComponentComponent,
+        canActivate: [AuthGuard],
       },
     ]
   },

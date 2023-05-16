@@ -2,33 +2,51 @@ import { Injectable } from '@angular/core';
 import { UserDataService } from 'src/app/data/user/user-data/user-data.service';
 import { ObjUsers } from '../../interfases/obj-users';
 import { LogueoService } from '../logueo/logueo.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private dataUserService: UserDataService, private logueoService: LogueoService) {}
+  constructor(private router: Router, private logueoService: LogueoService) {}
 
-  private user!: ObjUsers;
   private rol!: string;
   private rolAd: string = 'administrador';
-  private sesion: boolean = false;
+  private sesionAdmin: boolean = false;
+  private c: number = 0;
 
-
-  //Con base al id se valida si el usuario esta activo y de paso se trae su respectivo rol,
-  //para ello busca la info en el SCRIPT user-data.service.ts
-  public getGenerateSesion(id: string): void{
-    this.user = this.dataUserService.getUsersId(id);
-    if(this.user.active === true){
-      this.rol = this.user.rol;
-    }else{
-      this.rol = this.user.rol;
+  //Una vez identificado el usuario con su ID y password, se 
+  //procede a validar el rol, para así generar la respectiva sesión
+  private generateSession(): void{
+    console.log('generateSession');
+    console.log('rol del servicio logueoService: ' + this.logueoService.getRolUser());
+    if(this.logueoService.getConfirmSession()){
+      console.log('se confirma logueo de usuario: ' + this.logueoService.getConfirmSession() + ' ' + this.c) ;
+      if(this.c === 0){
+        if(this.logueoService.getRolUser() != ''){
+          this.rol = this.logueoService.getRolUser();          
+          this.router.navigate(['inicio']);
+          this.c=1;
+          console.log('va para: inicio: ' + this.c);
+        }
+      }      
     }
   }
 
-  public getRolAdministrador(): boolean{
-    (this.rol === this.rolAd) ? this.sesion = true : this.sesion = false;
-    return this.sesion;
+  //Se envia el rol del usuario, si en este caso es administrador se activan
+  //todos los componentes con el guard
+  public getSession(): boolean{
+    this.generateSession();
+    if(this.rol === this.rolAd){
+      return this.sesionAdmin = true; //Si es administrador
+    }
+    return this.sesionAdmin = false;
+  }
+
+  //Con esta función se reinicializa el contador para generar
+  //el componente de incio
+  public setInicio(contador: number){
+    this.c = contador;
   }
 }

@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
 
-  public variable: String = "MODIFICAR";
+  public variable: string = "MODIFICAR";
+  public app: string = "My App"
 
 }
