@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { UserDataService } from 'src/app/data/user/user-data/user-data.service';
-import { ObjStudent } from '../interfases/obj-student';
-import { StudentDataService } from 'src/app/data/user/student-data/student-data.service';
-import { ObjUsers } from '../interfases/obj-users';
+import { ObjUsers } from '../../interfases/obj-users';
+import { LogueoService } from '../logueo/logueo.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private dataUserService: UserDataService) {}
+  constructor(private dataUserService: UserDataService, private logueoService: LogueoService) {}
 
   private user!: ObjUsers;
   private rol!: string;

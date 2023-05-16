@@ -13,7 +13,7 @@ export class UserDataService {
       id: 'Ad-00A',
       name: 'Juan',
       lastName: 'Saldaña',
-      password: '1234d-00A',
+      password: 'A-1234',
       rol: 'administrador',
       active: true
     },
@@ -29,7 +29,7 @@ export class UserDataService {
       id: 'St-00A',
       name: 'Camila',
       lastName: 'Rodriguez',
-      password: '1234t-00A',
+      password: 'B-1234',
       rol: 'estudiante',
       active: true
     },

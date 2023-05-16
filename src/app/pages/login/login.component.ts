@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LogueoService } from 'src/app/utilities/services/logueo/logueo.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
     // });
   
     //Se crea una instancia para la parte logica del formulario
-    constructor(private fb: FormBuilder){}
+    constructor(private fb: FormBuilder, private logueoServices: LogueoService){}
 
   ngOnInit(): void{
     this.formuLogin = this.fb.group({
@@ -30,11 +31,9 @@ export class LoginComponent {
 
   //Función del se anida el contenido del formulario
   submit(): void{
-    console.log("Dio clic");
-    console.log("datosValide " + this.formuLogin.valid);
-    console.log("id: " + this.formuLogin.get('id')?.value); 
-    console.log("password: " + this.formuLogin.get('password')?.value); 
     
-    
+    console.log("datosValide: " + this.formuLogin.valid);
+    this.logueoServices.setInfoSession(this.formuLogin);
+    console.log("Existe?: " + this.logueoServices.getConfirmSession());
   }
 }
