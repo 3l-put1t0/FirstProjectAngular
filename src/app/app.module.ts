@@ -9,18 +9,20 @@ import { ToolbarComponent } from './shared/components/toolbar/toolbar.component'
 import { ComponentsModule } from './modules/components/componentsPrincipal/components.module';
 import { MyRoutingModule } from './modules/routing/my-routing/root/my-routing.module';
 import { InicioComponentComponent } from './pages/incio/inicio-component/inicio-component.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { WrapComponent } from './shared/components/wrap/wrap.component';
-import { LayoutComponent } from './pages/layout/layout.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavegatorComponent,
-    ToolbarComponent,
+    // NavegatorComponent,
+    // ToolbarComponent,
     InicioComponentComponent,
+    LoginComponent,
     WrapComponent,
-
+    
    
   ],
   imports: [
@@ -28,7 +30,8 @@ import { LayoutComponent } from './pages/layout/layout.component';
     BrowserAnimationsModule,
     AngularMaterialModule,
     ComponentsModule,
-    MyRoutingModule
+    MyRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

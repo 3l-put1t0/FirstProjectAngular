@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SemestreDataService } from 'src/app/data/material/material-data/semestre-data.service';
-import { UserDataService } from 'src/app/data/user/user-data/user-data.service';
+import { StudentDataService } from 'src/app/data/user/student-data/student-data.service';
+
 import { ObjSemestre } from 'src/app/utilities/interfases/obj-semestre';
 import { ObjStudent } from 'src/app/utilities/interfases/obj-student';
 
@@ -14,7 +15,7 @@ export class UserComponentComponent {
   public student!: ObjStudent[];
   public semestre!: ObjSemestre;
 
-  constructor(private serviceDataStudent: UserDataService, 
+  constructor(private serviceDataStudent: StudentDataService, 
               private serviceDataSemestres: SemestreDataService) {
     this.student = this.serviceDataStudent.getDataStudents();
     this.semestre = this.serviceDataSemestres.getDataSemesterId("S01");

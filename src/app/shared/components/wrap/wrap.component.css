@@ -1,5 +1,5 @@
 main {
     min-height: calc(100vh - var(--header-height));
-    background-color: rgb(173, 252, 232);
+    background-color: rgb(121, 121, 121);
     padding: 2rem;
   }

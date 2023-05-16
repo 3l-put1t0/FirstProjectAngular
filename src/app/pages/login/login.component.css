@@ -1,0 +1,13 @@
+h1, h2, p{
+    color: wheat;
+}
+.container{
+    display: grid;
+    place-items: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    /* align-content: center; */
+}

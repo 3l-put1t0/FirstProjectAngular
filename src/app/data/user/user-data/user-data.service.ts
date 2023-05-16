@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ObjStudent } from 'src/app/utilities/interfases/obj-student';
+import { ObjUsers } from 'src/app/utilities/interfases/obj-users';
 
 @Injectable({
   providedIn: 'root'
@@ -8,30 +8,100 @@ export class UserDataService {
 
   constructor() { }
 
-  public dataStudents: ObjStudent[] = [
+  private dataUsers: ObjUsers[] = [
     {
-      id: 'A00',
+      id: 'Ad-00A',
       name: 'Juan',
-      lastname: 'Saldaña',
-      age: 25,
-      semester: 10,
-      active: true,
-      course: ['Auto', 'Robótica', 'Circuitos']
+      lastName: 'Saldaña',
+      password: '1234d-00A',
+      rol: 'administrador',
+      active: true
     },
     {
-      id: 'B00',
+      id: 'Ad-00B',
       name: 'Miguel',
-      lastname: 'Saldaña',
-      age: 22,
-      semester: 8,
-      active: true,
-      course: ['Infraestructura', 'Lógica Matematíca', 'Arquitectura']
+      lastName: 'Saldaña',
+      password: '1234d-00B',
+      rol: 'administrador',
+      active: true
+    },
+    {
+      id: 'St-00A',
+      name: 'Camila',
+      lastName: 'Rodriguez',
+      password: '1234t-00A',
+      rol: 'estudiante',
+      active: true
+    },
+    {
+      id: 'St-00B',
+      name: 'Juan',
+      lastName: 'Castro',
+      password: '1234t-00B',
+      rol: 'estudiante',
+      active: true
+    },
+    {
+      id: 'St-00C',
+      name: 'Juliana',
+      lastName: 'Cuervo',
+      password: '1234t-00C',
+      rol: 'estudiante',
+      active: true
+    },
+    {
+      id: 'St-00D',
+      name: 'Miguel',
+      lastName: 'Castro',
+      password: '1234t-00D',
+      rol: 'estudiante',
+      active: true
+    },
+    {
+      id: 'St-00E',
+      name: 'Carlos',
+      lastName: 'Castro',
+      password: '1234t-00E',
+      rol: 'estudiante',
+      active: false
+    },
+    {
+      id: 'St-00F',
+      name: 'Laura',
+      lastName: 'Rodriguez',
+      password: '1234t-00F',
+      rol: 'estudiante',
+      active: false
     }
   ];
 
-  public getDataStudents(): ObjStudent[]{
-    return this.dataStudents;
+  private user: ObjUsers =
+    {
+      id: '',
+      name: '',
+      lastName: '',
+      rol: '',
+      active: false,
+      password: ''
+    };
+
+
+
+  public getUsers(): ObjUsers[] {
+    return this.dataUsers;
   }
-  
-  
+
+  public getUsersId(id: string): ObjUsers {
+    for (const i of this.dataUsers) {
+      if (i.id === id) {
+        this.user = i;
+      }
+    }
+    return this.user;
+  }
+
+
+
+
+
 }

@@ -1,0 +1,20 @@
+<div class="container mt-4">
+    <h1>Login</h1>
+    <br>
+    <form [formGroup]="formuLogin" (submit)="submit()">
+        <mat-form-field class="example-full-width">
+            <mat-label>ID</mat-label>
+            <input matInput placeholder="Ex: Ad-00A" value="" formControlName="id" autofocus>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" value="" formControlName="password" >
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit" routerLink="/inicio">Iniciar sesión</button>
+    </form>
+    <br>
+</div>
+<hr>
+<app-info-login></app-info-login>

@@ -7,31 +7,49 @@ import { UserComponentComponent } from 'src/app/pages/user/principalComponent/us
 import { OptionsUsersModule } from 'src/app/pages/user/secondComponent/options-users.module';
 import { OptionsMaterialsModule } from '../../../../pages/material/secondComponent/options-materials.module';
 import { LayoutComponent } from 'src/app/pages/layout/layout.component';
+import { LoginComponent } from 'src/app/pages/login/login.component';
+
 
 const routes: Routes = [
   {
-    path: 'inicio', component: InicioComponentComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path: 'usuarios', 
-    loadChildren:() => import('../../../../pages/user/secondComponent/options-users.module').then((m) => m.OptionsUsersModule)
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: 'inicio', component: InicioComponentComponent
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('../../../../pages/user/secondComponent/options-users.module').then((m) => m.OptionsUsersModule)
+      },
+      {
+        path: 'materias', //component: MaterialComponentComponent,
+        loadChildren: () => import('../../../../pages/material/secondComponent/options-materials.module').then((m) => m.OptionsMaterialsModule)
+      },
+      {
+        path: 'inscripciones', component: InscripcionesComponentComponent
+      },
+    ]
   },
-  {
-    path: 'materias', //component: MaterialComponentComponent,
-    loadChildren:() => import('../../../../pages/material/secondComponent/options-materials.module').then((m) => m.OptionsMaterialsModule)
-  },
-  {
-    path: 'inscripciones', component: InscripcionesComponentComponent
-  },
+
+  // {
+  //   path: '',
+  //   redirectTo: '/login',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes), 
+    RouterModule.forRoot(routes),
     // OptionsUsersModule,
     // OptionsMaterialsModule
   ]
-    ,
+  ,
   exports: [
     RouterModule
   ]
