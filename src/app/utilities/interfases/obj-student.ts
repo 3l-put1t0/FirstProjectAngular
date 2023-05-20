@@ -1,9 +1,7 @@
 export interface ObjStudent {
     id: string,
     name: string,
-    lastname: string,
+    lastName: string,
     age: number,
-    semester: number,
-    active: boolean,
     course: string[]
 }

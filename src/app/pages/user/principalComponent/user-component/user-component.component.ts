@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { SemestreDataService } from 'src/app/data/material/material-data/semestre-data.service';
 import { StudentDataService } from 'src/app/data/user/student-data/student-data.service';
+import { StudentJsonDataService } from 'src/app/data/user/student-data/student-json-data.service';
+import { ObjDataStudent } from 'src/app/utilities/interfases/obj-dataStudent';
 
 import { ObjSemestre } from 'src/app/utilities/interfases/obj-semestre';
 import { ObjStudent } from 'src/app/utilities/interfases/obj-student';
@@ -10,17 +13,31 @@ import { ObjStudent } from 'src/app/utilities/interfases/obj-student';
   templateUrl: './user-component.component.html',
   styleUrls: ['./user-component.component.css']
 })
-export class UserComponentComponent {
+export class UserComponentComponent implements OnInit {
   // private datastudents = new UserDataModule();
   public student!: ObjStudent[];
   public semestre!: ObjSemestre;
+  private dataJSON!: ObjDataStudent[];
+  private suscription!: Subscription;
+  public dataObservable!: Observable<ObjStudent[]>;
 
-  constructor(private serviceDataStudent: StudentDataService, 
-              private serviceDataSemestres: SemestreDataService) {
-    this.student = this.serviceDataStudent.getDataStudents();
-    this.semestre = this.serviceDataSemestres.getDataSemesterId("S01");
-    console.log(this.student);
-    console.log(this.semestre);
+
+  constructor(private serviceDataStudent: StudentDataService,
+              private dataJSONStudent: StudentJsonDataService) 
+  {
+    console.log("componeteUserStudent: " + this.student);
+    this.suscription = this.dataJSONStudent.getData().subscribe((r: ObjDataStudent[]) => {
+      this.dataJSON = r,
+      this.serviceDataStudent.setDataJSON(this.dataJSON);
+      this.student =this.serviceDataStudent.getDataStudents();
+    });
+  }
+
+  ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
   }
 
 
@@ -29,10 +46,10 @@ export class UserComponentComponent {
     'firstname',
     'lastname',
     'age',
-    'semester',
-    'active',
     'course',
     'edit',
     'delete',
   ];
 }
+
+

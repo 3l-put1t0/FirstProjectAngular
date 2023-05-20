@@ -4,7 +4,7 @@ import { UserComponentComponent } from '../principalComponent/user-component/use
 import { ModificarUserComponent } from './modificar-user/modificar-user.component';
 import { EliminarUserComponent } from './eliminar-user/eliminar-user.component';
 import { AgregarUserComponent } from './agregar-user/agregar-user.component';
-import { AuthGuard } from 'src/app/utilities/guards/auth.guard';
+import { AuthGuard } from 'src/app/utilities/guards/auth/auth.guard';
 
 const routes: Routes = [
   {

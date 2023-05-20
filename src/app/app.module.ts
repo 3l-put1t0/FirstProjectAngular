@@ -12,6 +12,7 @@ import { InicioComponentComponent } from './pages/incio/inicio-component/inicio-
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WrapComponent } from './shared/components/wrap/wrap.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { WrapComponent } from './shared/components/wrap/wrap.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
     ComponentsModule,

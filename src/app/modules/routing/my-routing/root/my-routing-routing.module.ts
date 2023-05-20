@@ -8,7 +8,8 @@ import { OptionsUsersModule } from 'src/app/pages/user/secondComponent/options-u
 import { OptionsMaterialsModule } from '../../../../pages/material/secondComponent/options-materials.module';
 import { LayoutComponent } from 'src/app/pages/layout/layout.component';
 import { LoginComponent } from 'src/app/pages/login/login.component';
-import { AuthGuard } from 'src/app/utilities/guards/auth.guard';
+import { AuthGuard } from 'src/app/utilities/guards/auth/auth.guard';
+import { LoginGuard } from 'src/app/utilities/guards/login/login.guard';
 
 
 const routes: Routes = [
@@ -19,24 +20,27 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    // canActivate: [LoginGuard],
     children: [
       {
         path: 'inicio', 
         component: InicioComponentComponent,
+        canActivate: [LoginGuard]
       },
       {
         path: 'usuarios',
-        loadChildren: () => import('../../../../pages/user/secondComponent/options-users.module').then((m) => m.OptionsUsersModule)
+        loadChildren: () => import('../../../../pages/user/secondComponent/options-users.module').then((m) => m.OptionsUsersModule),
+        canActivate: [LoginGuard]
       },
       {
         path: 'materias', //component: MaterialComponentComponent,
         loadChildren: () => import('../../../../pages/material/secondComponent/options-materials.module').then((m) => m.OptionsMaterialsModule),
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, LoginGuard],
       },
       {
         path: 'inscripciones', 
         component: InscripcionesComponentComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, LoginGuard],
       },
     ]
   },
