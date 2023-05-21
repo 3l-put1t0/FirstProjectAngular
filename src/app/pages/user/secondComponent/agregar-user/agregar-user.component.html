@@ -1,1 +1,36 @@
-<p>agregar-user works!</p>
+<hr>
+<div class="container mt-4">
+    <br>
+    <h2>Agregar</h2>
+    <br>
+    <form [formGroup]="formuAgregarEstudiante" (submit)="submit()">
+        <mat-form-field class="example-full-width">
+            <mat-label>ID</mat-label>
+            <input matInput placeholder="Ex: St-00A" value="" formControlName="id" autofocus>
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre del estudiante</mat-label>
+            <input matInput type="Nombre" value="" formControlName="name" >
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Apellido del estudiante</mat-label>
+            <input matInput type="Apellido" value="" formControlName="lastName" >
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Edad</mat-label>
+            <input matInput type="Edad" value="" formControlName="age" >
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Cursos</mat-label>
+            <input matInput type="Cursos" value="" formControlName="courseID" >
+        </mat-form-field>
+        <br>
+        <!-- routerLink="/inicio" -->
+        <button mat-raised-button color="primary" type="submit">Agregar</button>
+    </form>
+    <br>
+</div>

@@ -24,16 +24,18 @@ export class UserComponentComponent implements OnInit {
 
   constructor(private serviceDataStudent: StudentDataService,
               private dataJSONStudent: StudentJsonDataService) 
-  {
-    console.log("componeteUserStudent: " + this.student);
-    this.suscription = this.dataJSONStudent.getData().subscribe((r: ObjDataStudent[]) => {
-      this.dataJSON = r,
-      this.serviceDataStudent.setDataJSON(this.dataJSON);
-      this.student =this.serviceDataStudent.getDataStudents();
-    });
-  }
+  {}
 
   ngOnInit(): void {
+    this.suscription = this.dataJSONStudent.getData().subscribe((r: ObjDataStudent[]) => {
+      this.dataJSON = r,
+      this.serviceDataStudent.setDataJSON(this.dataJSON),
+      this.student =this.serviceDataStudent.getDataStudents();  
+      console.log("componeteUserStudent-subscribe: ");
+      console.log(this.student);     
+    });
+  
+ 
   }
 
   ngOnDestroy(): void {

@@ -23,7 +23,8 @@ export class StudentDataService {
     age: 0,
     course: []
   };
-  private dataSubject: BehaviorSubject<ObjStudent[]> = new BehaviorSubject<ObjStudent[]>([]);
+  private dataAdd: ObjStudent[] = [];
+
   // public data$: Observable<ObjStudent[]> = this.dataSubject.asObservable();
 
 
@@ -31,6 +32,7 @@ export class StudentDataService {
 
   public setDataJSON(data: ObjDataStudent[]): void {
     this.dataJSON = data; 
+    this.changeDataStudent();
   }
 
   private getDataJSON(): ObjDataStudent[]{
@@ -38,10 +40,17 @@ export class StudentDataService {
   }
 
   private changeDataStudent(): void {    
-    // let dataStudent: ObjStudent;
+    // let dataStudent: ObjStudent;   
+    const dataSubject: BehaviorSubject<ObjStudent[]> = new BehaviorSubject<ObjStudent[]>([]);
+    console.log("*****************");
+    console.log(dataSubject.complete());
+    console.log(dataSubject.getValue());
+    
+    let c: number = 0;
     for (const i of this.dataUserService.getUsers()) {
       for (const j of this.getDataJSON()) {
         if (i.id === j.id) {
+          c++;
           this.daaataStudent = {
             id: i.id,
             name: i.name,
@@ -50,18 +59,30 @@ export class StudentDataService {
             course: j.courseID
           }
 
-          this.dataStudents = this.dataSubject.getValue();
+          console.log('getValue: ');
+          console.log(dataSubject.getValue());
+          this.dataStudents = dataSubject.getValue();
           this.dataStudents.push(this.daaataStudent);
-          this.dataSubject.next(this.dataStudents);          
+          console.log("c: " + c);
+          if(c === this.getDataJSON().length){
+            for(const i of this.dataAdd){
+              this.dataStudents.push(i);            
+            }
+          }     
+
+          console.log('next: ');
+          console.log(dataSubject.next(this.dataStudents) );
+          dataSubject.next(this.dataStudents);         
+             
         }
         
     }
+   
   }
 }
 
 
   public getDataStudents(): ObjStudent[] {
-    this.changeDataStudent();
     return this.dataStudents;
   }
 
@@ -72,5 +93,9 @@ export class StudentDataService {
       }
     }
     return this.dataStudent;
+  }
+
+  public addStudent(data: ObjStudent): void{
+    this.dataAdd.push(data);    
   }
 }

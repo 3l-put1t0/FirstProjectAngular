@@ -1,5 +1,9 @@
 <!-- <p>user-component works!</p>
 <li *ngFor="let s of student">estudiante: {{s.name}}-{{s.lastname}}</li> -->
+<div id="btn-add">
+  <button id="btnAddStu" mat-raised-button color="primary" routerLink="agregar">Agregar Estudiante</button>
+</div>
+
 <table mat-table [dataSource]="student" class="mat-elevation-z8">
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -29,7 +33,7 @@
     <th mat-header-cell *matHeaderCellDef>Editar</th>
     <td mat-cell *matCellDef="let student">
       <button mat-icon-button routerLink="modificar">
-        <mat-icon class="iconEdit" aria-hidden="false" aria-label="Example home icon" >edit</mat-icon>
+        <mat-icon class="iconEdit" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
       </button>
     </td>
   </ng-container>

@@ -9,3 +9,13 @@
 .iconDelete{
    color: rgb(255, 89, 89);
 }
+
+#btn-add{
+   display: flex;
+   justify-content: flex-end;   
+}
+
+#btnAddMate{
+   margin-bottom: 6px;
+   margin-right: 10px;
+}

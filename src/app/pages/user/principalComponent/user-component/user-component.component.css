@@ -17,3 +17,13 @@ button:hover{
 }
 
 
+#btn-add{
+    display: flex;
+    justify-content: flex-end;   
+ }
+ 
+ #btnAddStu{
+    margin-bottom: 6px;
+    margin-right: 10px;
+ }
+
