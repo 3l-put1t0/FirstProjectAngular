@@ -13,7 +13,7 @@
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef>Editar</th>
       <td mat-cell *matCellDef="let materias">
-        <button mat-icon-button routerLink="modificar">
+        <button mat-icon-button routerLink="modificar" (click)="modify(materias.id, materias.name)">
           <mat-icon class="iconEdit" aria-hidden="false" aria-label="Example home icon" >edit</mat-icon>
         </button>
       </td>
@@ -21,7 +21,8 @@
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Eliminar</th>
       <td mat-cell *matCellDef="let materias">
-        <button mat-icon-button routerLink="borrar">
+        <!-- routerLink="borrar" -->
+        <button mat-icon-button (click)="delete(materias.id)">
           <mat-icon class="iconDelete" aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
         </button>
       </td>

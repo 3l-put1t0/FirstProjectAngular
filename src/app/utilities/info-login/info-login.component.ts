@@ -20,7 +20,7 @@ export class InfoLoginComponent implements OnInit, OnDestroy{
   }
   
   ngOnInit(): void{
-    this.suscription = this.dataJSON.getData().subscribe((r: ObjUsers[]) => {
+    this.suscription = this.dataJSON.getDataUsers().subscribe((r: ObjUsers[]) => {
       this.users = r,
       this.userLoginService.setUsers(this.users);
     });

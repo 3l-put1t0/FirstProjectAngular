@@ -1,1 +1,22 @@
-<p>modificar-material works!</p>
+<hr>
+<div class="container mt-4">
+    <br>
+    <h2>Modificar</h2>
+    <br>
+    <form [formGroup]="formuModificarMaterial" (submit)="submit()">
+        <mat-form-field class="example-full-width">
+            <mat-label>ID</mat-label>
+            <input matInput placeholder="Ex: M-001" value="" formControlName="id" autofocus readonly="">
+        </mat-form-field>
+        <br>
+        <mat-form-field class="example-full-width">
+            <mat-label>Nombre de la materia</mat-label>
+            <input matInput type="Nombre" value="" formControlName="name" >
+        </mat-form-field>
+        <br>
+        <!-- routerLink="/inicio" -->
+        <button mat-raised-button color="primary" type="submit">Modificar</button>
+    </form>
+    <br>
+</div>
+

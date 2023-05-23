@@ -4,5 +4,7 @@ export interface ObjUsers {
     lastName: string,
     password: string,
     rol: string,
-    active: boolean
+    active: boolean,
+    age: number,
+    couserID: []
 }

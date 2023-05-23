@@ -13,6 +13,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WrapComponent } from './shared/components/wrap/wrap.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { appReducer } from './utilities/store/app.reducer';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularMaterialModule,
     ComponentsModule,
     MyRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot(appReducer, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

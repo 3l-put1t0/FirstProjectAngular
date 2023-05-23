@@ -16,7 +16,9 @@ export class UserDataService {
     lastName: '',
     rol: '',
     active: false,
-    password: ''
+    password: '',
+    age: 18,
+    couserID: []
   };
 
   public setUsers(users: ObjUsers[]): void{
