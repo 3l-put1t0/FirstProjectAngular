@@ -6,5 +6,5 @@ export interface ObjUsers {
     rol: string,
     active: boolean,
     age: number,
-    couserID: []
+    courseID: []
 }

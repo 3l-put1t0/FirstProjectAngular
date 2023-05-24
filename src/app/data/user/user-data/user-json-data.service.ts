@@ -30,6 +30,6 @@ export class UserJsonDataService {
   }
 
   public deleteDataUser(id: string){
-    return this.http.delete<ObjUsers[]>(`${this._URL}${this.endPoint}/${id}`);
+    return this.http.delete<ObjUsers>(`${this._URL}${this.endPoint}/${id}`);
   }
 }

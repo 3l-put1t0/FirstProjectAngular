@@ -1,112 +1,116 @@
 [
-    {
-      "id": "Ad-00A",
-      "name": "Juan",
-      "lastName": "Saldaña",
-      "password": "A-1234",
-      "rol": "administrador",
-      "active": true,
-      "age": 25,
-      "courseID": [{}]
-    },
-    {
-      "id": "Ad-00B",
-      "name": "Miguel",
-      "lastName": "Saldaña",
-      "password": "1234d-00B",
-      "rol": "administrador",
-      "active": true,
-      "age": 22,
-      "courseID": [{}]
-    },
-    {
-      "id": "St-00A",
-      "name": "Camila",
-      "lastName": "Rodriguez",
-      "password": "B-1234",
-      "rol": "estudiante",
-      "active": true,
-      "age": 18,
-      "courseID": [{
-        "course-1": 1,
-        "course-2": 2,
-        "course-3": 3,
-        "course-4": 4
-      }]
-    },
-    {
-      "id": "St-00B",
-      "name": "Juan",
-      "lastName": "Castro",
-      "password": "1234t-00B",
-      "rol": "estudiante",
-      "active": true,
-      "age": 25,
-      "courseID": [{
-        "course-1": 5,
-        "course-2": 6,
-        "course-3": 7,
-        "course-4": 8
-      }]
-    },
-    {
-      "id": "St-00C",
-      "name": "Juliana",
-      "lastName": "Cuervo",
-      "password": "1234t-00C",
-      "rol": "estudiante",
-      "active": true,
-      "age": 25,
-      "courseID": [{
-        "course-1": 9,
-        "course-2": 10,
-        "course-3": 11,
-        "course-4": 12
-      }]
-    },
-    {
-      "id": "St-00D",
-      "name": "Miguel",
-      "lastName": "Castro",
-      "password": "1234t-00D",
-      "rol": "estudiante",
-      "active": true,
-      "age": 28,
-      "courseID": [{
-        "course-1": 13,
-        "course-2": 14,
-        "course-3": 15,
-        "course-4": 16
-      }]
-    },
-    {
-      "id": "St-00E",
-      "name": "Carlos",
-      "lastName": "Castro",
-      "password": "1234t-00E",
-      "rol": "estudiante",
-      "active": false,
-      "age": 30,
-      "courseID": [{
-        "course-1": 17,
-        "course-2": 18,
-        "course-3": 19,
-        "course-4": 20
-      }]
-    },
-    {
-      "id": "St-00F",
-      "name": "Laura",
-      "lastName": "Rodriguez",
-      "password": "1234t-00F",
-      "rol": "estudiante",
-      "active": false,
-      "age": 23,
-      "courseID": [{
-        "course-1": 21,
-        "course-2": 22,
-        "course-3": 23,
-        "course-4": 24
-      }]
-    }
-  ]
+  {
+    "id": "Ad-00A",
+    "name": "Juan",
+    "lastName": "Saldaña",
+    "password": "A-1234",
+    "rol": "administrador",
+    "active": true,
+    "age": 25,
+    "courseID": [
+      {}
+    ]
+  },
+  {
+    "id": "Ad-00B",
+    "name": "Miguel",
+    "lastName": "Saldaña",
+    "password": "1234d-00B",
+    "rol": "administrador",
+    "active": true,
+    "age": 22,
+    "courseID": [
+      {}
+    ]
+  },
+  {
+    "id": "St-00A",
+    "name": "Camila",
+    "lastName": "Rodriguez",
+    "password": "B-1234",
+    "rol": "estudiante",
+    "active": true,
+    "age": 18,
+    "courseID": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "id": "St-00B",
+    "name": "Juan",
+    "lastName": "Castro",
+    "password": "1234t-00B",
+    "rol": "estudiante",
+    "active": false,
+    "age": 25,
+    "courseID": [
+      5,
+      6,
+      7,
+      9
+    ]
+  },
+  {
+    "id": "St-00C",
+    "name": "Juliana",
+    "lastName": "Cuervo",
+    "password": "1234t-00C",
+    "rol": "estudiante",
+    "active": true,
+    "age": 25,
+    "courseID": [
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": "St-00D",
+    "name": "Miguel",
+    "lastName": "Castro",
+    "password": "1234t-00D",
+    "rol": "estudiante",
+    "active": true,
+    "age": 28,
+    "courseID": [
+      13,
+      14,
+      15,
+      16
+    ]
+  },
+  {
+    "id": "St-00E",
+    "name": "Carlos",
+    "lastName": "Castro",
+    "password": "1234t-00E",
+    "rol": "estudiante",
+    "active": false,
+    "age": 30,
+    "courseID": [
+      17,
+      18,
+      19,
+      20
+    ]
+  },
+  {
+    "id": "St-00F",
+    "name": "Laura",
+    "lastName": "Rodriguez",
+    "password": "1234t-00F",
+    "rol": "estudiante",
+    "active": false,
+    "age": 23,
+    "courseID": [
+      21,
+      22,
+      23,
+      24
+    ]
+  }
+]

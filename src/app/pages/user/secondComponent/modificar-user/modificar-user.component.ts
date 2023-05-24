@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { UserJsonDataService } from 'src/app/data/user/user-data/user-json-data.service';
 import { ObjJSONDatauser } from 'src/app/utilities/interfases/obj-JSONDataUser';
@@ -24,29 +25,30 @@ export class ModificarUserComponent implements OnInit {
       rol: '',
       active: false,
       age: 18,
-      couserID: []
+      courseID: []
     }
   };
   private dataUserID!: string;
   private dataUserName!: string;
   private dataUserLastName!: string;
-
-  private dataArrayUse!: ObjUsers;
+    private dataStudent!: ObjUsers;
 
   constructor(private bf: FormBuilder,
             private store: Store<AppState>,
-            private dataUserJSON: UserJsonDataService) {}
+            private dataUserJSON: UserJsonDataService,
+            private router: Router) {}
 
   
 
   ngOnInit(): void {
 
     this.formuModificarEstudiante = this.bf.group({
-      id: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      age: ['', [Validators.required]],
-      courseID: ['', [Validators.required]]
+      id: ['',[Validators.required]],
+      name: ['',[Validators.required]],
+      lastName: ['',[Validators.required]],
+      age: ['',[Validators.required]],
+      active: ['', [Validators.required]],
+      courseID: ['',[Validators.required]]
     }); 
 
     this.store.select(userSelector).subscribe((r) => {
@@ -65,6 +67,7 @@ export class ModificarUserComponent implements OnInit {
           name: r.name,
           lastName: r.lastName,
           age: '22',
+          active: r.active,
           courseID: []
         });
       });
@@ -73,6 +76,19 @@ export class ModificarUserComponent implements OnInit {
   }
 
   submit() {
+    this.dataStudent ={
+      id: this.formuModificarEstudiante.get('id')?.value,
+      name: this.formuModificarEstudiante.get('name')?.value,
+      lastName: this.formuModificarEstudiante.get('lastName')?.value,
+      password: '',
+      rol: 'estudiante',
+      active: this.formuModificarEstudiante.get('active')?.value,
+      age: parseInt(this.formuModificarEstudiante.get('age')?.value),
+      courseID: this.formuModificarEstudiante.get('courseID')?.value
+    }
+
+    this.dataUserJSON.putDataUser(this.dataUserID, this.dataStudent).subscribe();
+    this.router.navigate(['inicio']);
 
   }
 }

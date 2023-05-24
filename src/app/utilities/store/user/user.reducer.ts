@@ -11,7 +11,7 @@ const initialState: ObjJSONDatauser = {
         rol: '',
         active: false,
         age: 18,
-        couserID: []
+        courseID: []
     }
 };
 

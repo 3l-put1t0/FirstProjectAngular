@@ -1,98 +1,98 @@
 [
     {
-        "id": "M-001",
+        "id": "1",
         "name": "LOGICA DE PROGRAMACIÓN"
     },
     {
-        "id": "M-002",
+        "id": "2",
         "name": "CALCULO DIFERENCIAL"
     },
     {
-        "id": "M-003",
+        "id": "3",
         "name": "MEDIOS DE TRANSMISION"
     },
     {
-        "id": "M-004",
+        "id": "4",
         "name": "ORIENTACIÓN A INGENIERÍA"
     },
     {
-        "id": "M-005",
+        "id": "5",
         "name": "CIRCUITOS ELÉCTRICOS I"
     },
     {
-        "id": "M-006",
+        "id": "6",
         "name": "CONTROL DE ROBOTS"
     },
     {
-        "id": "M-007",
+        "id": "7",
         "name": "TELEFONIA Y CONMUTACION"
     },
     {
-        "id": "M-008",
+        "id": "8",
         "name": "PROYECTO DE INVESTIGACION III"
     },
     {
-        "id": "M-009",
+        "id": "9",
         "name": "MATEMATICAS FINANCIERAS"
     },
     {
-        "id": "M-010",
+        "id": "10",
         "name": "GERENCIA ESTRATEGICA"
     },
     {
-        "id": "M-011",
+        "id": "11",
         "name": "ELECTRONICA DIGITAL II"
     },
     {
-        "id": "M-012",
+        "id": "12",
         "name": "CATEDRA MANUELA BELTRAN"
     },
     {
-        "id": "M-013",
+        "id": "13",
         "name": "ALGEBRA LINEAL"
     },
     {
-        "id": "M-014",
+        "id": "14",
         "name": "TELEINFORMATICA"
     },
     {
-        "id": "M-015",
+        "id": "15",
         "name": "FUNDAMENTOS DE COMUNICACIONES"
     },
     {
-        "id": "M-016",
+        "id": "16",
         "name": "MATEMATICAS BASICAS"
     },
     {
-        "id": "M-017",
+        "id": "17",
         "name": "FISICA MECANICA Y LABORATORIO"
     },
     {
-        "id": "M-018",
+        "id": "18",
         "name": "ROBOTICA INDUSTRIAL"
     },
     {
-        "id": "M-019",
+        "id": "19",
         "name": "AUTOMATIZACION INDUSTRIAL II"
     },
     {
-        "id": "M-020",
+        "id": "20",
         "name": "PROYECTO DE INVESTIGACION II"
     },
     {
-        "id": "M-021",
+        "id": "21",
         "name": "ROBOTICA BIOINSPIRADA"
     },
     {
-        "id": "M-022",
+        "id": "22",
         "name": "INGLÉS AVANZADO"
     },
     {
-        "id": "M-023",
+        "id": "23",
         "name": "SISTEMAS DIGITALES AVANZADOS"
     },
     {
-        "id": "M-024",
+        "id": "24",
         "name": "SISTEMAS DE CONTROL"
     }
 ]

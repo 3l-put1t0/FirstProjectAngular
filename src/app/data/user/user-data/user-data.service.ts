@@ -18,7 +18,7 @@ export class UserDataService {
     active: false,
     password: '',
     age: 18,
-    couserID: []
+    courseID: []
   };
 
   public setUsers(users: ObjUsers[]): void{

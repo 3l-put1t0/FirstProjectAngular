@@ -21,7 +21,7 @@ export class AuthService {
   private generateSession(): void{
     console.log('generateSession');
     console.log('rol del servicio logueoService: ' + this.logueoService.getRolUser());
-    if(this.logueoService.getConfirmSession()){
+    if(this.logueoService.getConfirmSession() && this.logueoService.getActive()){
       console.log('se confirma logueo de usuario: ' + this.logueoService.getConfirmSession() + ' ' + this.c) ;
       if(this.c === 0){
         if(this.logueoService.getRolUser() != ''){

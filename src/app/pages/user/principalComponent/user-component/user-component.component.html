@@ -21,11 +21,15 @@
     <th mat-header-cell *matHeaderCellDef>Edad</th>
     <td mat-cell *matCellDef="let student">{{ student.age }}</td>
   </ng-container>
+  <ng-container matColumnDef="active">
+    <th mat-header-cell *matHeaderCellDef>Activo</th>
+    <td mat-cell *matCellDef="let student">{{ student.active }}</td>
+  </ng-container>
   <ng-container matColumnDef="course">
     <th mat-header-cell *matHeaderCellDef>Cursos</th>
     <td mat-cell *matCellDef="let student">
-      <p *ngFor="let curso of student.course">
-        <strong>{{curso}}</strong>
+      <p *ngFor="let curso of student.courseID">
+        <strong>{{curso | json}}</strong>
       </p>
     </td>
   </ng-container>

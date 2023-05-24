@@ -29,6 +29,6 @@ export class CourseDataJsonService {
   }
 
   public deleteDataCourse(id: string){
-    return this.http.delete<ObjDataCourse[]>(`${this._URL}${this.endPoint}/${id}`);
+    return this.http.delete<ObjDataCourse>(`${this._URL}${this.endPoint}/${id}`);
   }
 }

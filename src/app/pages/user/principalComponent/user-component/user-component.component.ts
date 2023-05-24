@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscriber, Subscription, from } from 'rxjs';
 import { SemestreDataService } from 'src/app/data/material/material-data/semestre-data.service';
 import { StudentDataService } from 'src/app/data/user/student-data/student-data.service';
 import { StudentJsonDataService } from 'src/app/data/user/student-data/student-json-data.service';
@@ -22,7 +22,7 @@ import { loadIdUser } from 'src/app/utilities/store/user/user.action';
 })
 export class UserComponentComponent implements OnInit {
   // private datastudents = new UserDataModule();
-  public student!: ObjStudent[];
+  public student!: ObjUsers[];
   public semestre!: ObjSemestre;
   private dataJSON!: ObjDataStudent[];
   private suscription!: Subscription;
@@ -30,23 +30,54 @@ export class UserComponentComponent implements OnInit {
   private c: number = 0;
   private dataJSONId!: ObjJSONDatauser;
   private dataUser!: ObjUsers;
+  private rol: string = 'estudiante';
 
 
   constructor(private serviceDataStudent: StudentDataService,
     private dataJSONStudent: StudentJsonDataService,
-    private userData: UserJsonDataService,
+    private userDataService: UserJsonDataService,
     private router: Router,
     private store: Store<AppState>) { }
 
 
   ngOnInit(): void {
-    this.suscription = this.dataJSONStudent.getData().subscribe((r: ObjDataStudent[]) => {
-      this.dataJSON = r,
-        this.serviceDataStudent.setDataJSON(this.dataJSON),
-        this.student = this.serviceDataStudent.getDataStudents(),
-        console.log("componeteUserStudent-subscribe: "),
-        console.log(this.student)
-    });
+    // this.suscription = this.dataJSONStudent.getData().subscribe((r: ObjDataStudent[]) => {
+    //   this.dataJSON = r,
+    //     this.serviceDataStudent.setDataJSON(this.dataJSON),
+    //     this.student = this.serviceDataStudent.getDataStudents(),
+    //     console.log("componeteUserStudent-subscribe: "),
+    //     console.log(this.student)
+    // });
+    this.serviceDataStudent.resetDataStudent([]);
+    this.suscription = this.userDataService.getDataUsers().subscribe(
+      (r: ObjUsers[]) => {
+        from(r).subscribe(     //Se recorre el objeto traido del API
+          {
+            next: value => {
+              if (value.rol === this.rol) {
+                this.serviceDataStudent.setDataStudent.subscribe(
+                (obj: ObjUsers[]) => {
+                  console.log('ArrayStudent', this.serviceDataStudent.getStudent()),
+                  console.log('USER COMPONENT value'),
+                  console.log(value),
+                  console.log('USER COMPONENT obj'),
+                  console.log(obj),
+                  obj.push(value),
+                  console.log(obj),
+                  console.log('ArrayStudent', this.serviceDataStudent.getStudent()),
+                  this.student = obj
+                });
+              }
+            },
+            error: err => console.error('ERROR: ', err),
+            complete: () => console.info('ok')
+          });
+      });
+
+    //  this.serviceDataStudent.getStudent.subscribe(
+    //   (r) => this.student = r
+    //  );
+
   }
 
   ngOnDestroy(): void {
@@ -59,13 +90,14 @@ export class UserComponentComponent implements OnInit {
     'firstname',
     'lastname',
     'age',
+    'active',
     'course',
     'edit',
     'delete',
   ];
 
   delete(id: string) {
-    this.userData.deleteDataUser(id).subscribe();
+    this.userDataService.deleteDataUser(id).subscribe();
     this.router.navigate(['inicio']);
   }
 
@@ -78,7 +110,7 @@ export class UserComponentComponent implements OnInit {
       rol: '',
       active: false,
       age: 18,
-      couserID: []
+      courseID: []
     };
 
     this.dataJSONId = {
@@ -87,6 +119,8 @@ export class UserComponentComponent implements OnInit {
     console.log('user component: ', this.dataJSONId);
     this.store.dispatch(loadIdUser({ data: this.dataJSONId }));
   }
+
+  
 }
 
 

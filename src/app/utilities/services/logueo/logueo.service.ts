@@ -14,6 +14,7 @@ export class LogueoService {
   private passwordUser: string = '';
   private confirmSession: boolean = false;
   private rolUser: string = '';
+  private active: boolean = false;
 
   constructor(private userDataService: UserDataService) {
     // this.userDataService.getUsersId();
@@ -50,12 +51,20 @@ export class LogueoService {
   }
 
   //Retorna el rol del usuario logueado si existe
-  public getRolUser(): string{
-    if(this.getConfirmSession()){
+  public getRolUser(): string {
+    if (this.getConfirmSession()) {
       return this.rolUser = this.dataUser.rol;
     }
     return '';
-    
+
+  }
+
+  public setActive(active: boolean): void {
+    this.active = active;
+  }
+
+  public getActive(): boolean{
+    return this.active;
   }
 
 }
