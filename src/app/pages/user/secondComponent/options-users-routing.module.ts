@@ -19,7 +19,8 @@ const routes: Routes = [
           canActivate: [AuthGuard],
         },
         {
-          path: 'agregar', component: AgregarUserComponent
+          path: 'agregar', component: AgregarUserComponent,
+          canActivate: [AuthGuard],
         },
       ]
   }

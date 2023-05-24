@@ -34,6 +34,11 @@ export class AuthService {
     }
   }
 
+  //Reinicia el contador de logueo
+  public setCounterSession (counter: number): void{
+    this.c = counter;
+  }
+
   //Se envia el rol del usuario, si en este caso es administrador se activan
   //todos los componentes con el guard
   public getSession(): boolean{

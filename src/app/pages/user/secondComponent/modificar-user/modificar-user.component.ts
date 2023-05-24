@@ -5,6 +5,8 @@ import { Store } from '@ngrx/store';
 import { UserJsonDataService } from 'src/app/data/user/user-data/user-json-data.service';
 import { ObjJSONDatauser } from 'src/app/utilities/interfases/obj-JSONDataUser';
 import { ObjUsers } from 'src/app/utilities/interfases/obj-users';
+import { AuthService } from 'src/app/utilities/services/auth/auth.service';
+import { LogueoService } from 'src/app/utilities/services/logueo/logueo.service';
 import { AppState } from 'src/app/utilities/store/app.reducer';
 import { userSelector } from 'src/app/utilities/store/user/user.selector';
 
@@ -31,12 +33,17 @@ export class ModificarUserComponent implements OnInit {
   private dataUserID!: string;
   private dataUserName!: string;
   private dataUserLastName!: string;
-    private dataStudent!: ObjUsers;
+  private dataStudent!: ObjUsers;
+  public activeInput: boolean = false;
 
   constructor(private bf: FormBuilder,
             private store: Store<AppState>,
             private dataUserJSON: UserJsonDataService,
-            private router: Router) {}
+            private logueoUserService: LogueoService,
+            private router: Router,
+            private authServices: AuthService) {
+              this.activeInput = this.authServices.getSession();
+            }
 
   
 
@@ -66,7 +73,7 @@ export class ModificarUserComponent implements OnInit {
           id: this.dataUserID,
           name: r.name,
           lastName: r.lastName,
-          age: '22',
+          age: r.age,
           active: r.active,
           courseID: []
         });
@@ -80,7 +87,7 @@ export class ModificarUserComponent implements OnInit {
       id: this.formuModificarEstudiante.get('id')?.value,
       name: this.formuModificarEstudiante.get('name')?.value,
       lastName: this.formuModificarEstudiante.get('lastName')?.value,
-      password: '',
+      password: this.logueoUserService.getInfoSession().get('password')?.value,
       rol: 'estudiante',
       active: this.formuModificarEstudiante.get('active')?.value,
       age: parseInt(this.formuModificarEstudiante.get('age')?.value),

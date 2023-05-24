@@ -26,6 +26,10 @@ export class LogueoService {
     this.checkUser(this.session);
   }
 
+  public getInfoSession(): FormGroup{
+    return this.session;
+  }
+
   //Verifica si existe el usuarios
   private checkUser(session: FormGroup): void {
     this.idUser = session.get('id')?.value;

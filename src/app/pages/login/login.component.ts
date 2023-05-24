@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserJsonDataService } from 'src/app/data/user/user-data/user-json-data.service';
+import { LogoutService } from 'src/app/utilities/services/logout/logout.service';
 import { ObjUsers } from 'src/app/utilities/interfases/obj-users';
 import { AuthService } from 'src/app/utilities/services/auth/auth.service';
 import { LogueoService } from 'src/app/utilities/services/logueo/logueo.service';
@@ -26,6 +27,7 @@ export class LoginComponent {
     private logueoServices: LogueoService,
     private authService: AuthService,
     private dataUserServices: UserJsonDataService,
+    private logOutService: LogoutService
   ) { }
 
   ngOnInit(): void {
@@ -33,16 +35,19 @@ export class LoginComponent {
       id: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(3)]]
     });
+
+    this.logOutService.setOutSession(false);
   }
 
 
   //Función donde se anida el contenido del formulario
-  submit(): void {
-
+  submit(): void { 
+    this.logOutService.setOutSession(false);
+    console.log('logOut ', this.logOutService.getOutSession());
     this.dataUserServices.getDataUserID(this.formuLogin.get('id')?.value).subscribe(
       (r: ObjUsers) => {
-        console.log("LOGIN COMPONENT"),
-        console.log(r),
+        // console.log("LOGIN COMPONENT"),
+        // console.log(r),
         this.userActive = r.active;
         this.logueoServices.setActive(this.userActive);
         console.log("datosValide: " + this.formuLogin.valid);
